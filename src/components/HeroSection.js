@@ -3,7 +3,7 @@ import React from "react";
 function HeroSection() {
   return (
     <div className="home view">
-      <div className="highlights">
+      {/* <div className="highlights">
         <h3>Feel The Power With</h3>
         <h1>
           <b>OUR</b>GYM
@@ -14,7 +14,7 @@ function HeroSection() {
           repellat maiores architecto.
         </p>
         <button class="join">Join Now</button>
-      </div>
+      </div> */}
       <div className="background"></div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from 'react-router-dom'
 import logo from "../images/gym logo 4.png";
 // import ReactDOM from 'react-dom'
 import { FaUser } from "react-icons/fa"; 
@@ -17,18 +18,18 @@ function Navbar() {
       </div>
       <ul>
         <li>
-          <a href="#">Home</a>
+          <NavLink to="/home">Home</NavLink>
         </li>
         <li>
-          <a href="#">Diet</a>
+          <NavLink to="/food">Diet</NavLink>
         </li>
         <li>
-          <a href="#">Excercise</a>
+          <NavLink to="/exercise">Excercise</NavLink>
         </li>
         <li>
-          <a href="#">Trainee</a>
+          <NavLink to="/trainee">Trainee</NavLink>
         </li>
-       <li><FaUser className='profil'/> </li> 
+       <li><NavLink to="/profile"><FaUser className='profil'/></NavLink></li> 
         
       </ul>
     </div> 
