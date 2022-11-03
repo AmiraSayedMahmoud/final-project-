@@ -168,7 +168,7 @@ Food Type
     } */}
     {
        filteredFood.map((item) =>{
-        return <div className=''><FoodCard data={item} user={location} /></div>
+        return <div className=''><FoodCard data={item} user={location} deletefood={deletefood}/></div>
       })
           // filteredFood.length !==0 ? filteredFood.map((item) =>{
           //   return <div className=''><FoodCard data={item} user={location} /></div>
@@ -178,6 +178,9 @@ Food Type
           //   return <div className=''><FoodCard data={item} key={item._id} user={location} deletefood={deletefood}/></div>
           // })
         }
+        {/* {arrOfFood.map((item) =>{
+            return <div className=''><FoodCard data={item} key={item._id} user={location} deletefood={deletefood}/></div>
+          })} */}
      </div>
      
      </div>

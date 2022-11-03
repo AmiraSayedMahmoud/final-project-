@@ -44,7 +44,7 @@ export default function AddNewFood() {
       form.append("foodTime",values.foodTime)
       form.append("foodType",values.foodType)
       form.append("ingredients",values.ingredients)
-      form.append('imgFood',values.imgFood);
+      form.append('imgFood',values.file);
      console.log(values)
     //  const obj = {values}
      axiosInstance.post('api/v1/healthyfoods/add',form).then((res)=>
@@ -56,7 +56,7 @@ export default function AddNewFood() {
     )
     // localStorage.setItem("token","Hello");
     //  navigate("/food",{state:{values}})
-    navigate("/foods")
+    // navigate("/foods")
     },
   });
 
@@ -88,7 +88,8 @@ export default function AddNewFood() {
 
   <div className="mt-3">
   <label htmlFor="imgFood" className="form-label">Image</label>
-  <input id=" imgFood" className="form-control"  name="imgFood" type="file" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.imgFood} />
+  <input id=" imgFood" className="form-control"  name="file" type="file"  onBlur={formik.handleBlur} value={formik.values.imgFood} onChange={(event) => {
+  formik.setFieldValue("file", event.currentTarget.files[0]);}}/>
   {formik.touched.imgFood && formik.errors.imgFood ? ( <div>{formik.errors.imgFood}</div> ) : null}
 </div>
  

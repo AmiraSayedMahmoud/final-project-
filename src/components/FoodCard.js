@@ -34,7 +34,7 @@ function del(name)
          deletefood(name)
        
         
-        //  setArrOfFood((prev)=>prev.filter((item)=>item.foodName!=name));
+         setArrOfFood((prev)=>prev.filter((item)=>item.foodName!=name));
        axiosInstance.delete('api/v1/healthyfoods/delete/'+name).then((res) =>{
            console.log(res)
            
@@ -71,6 +71,12 @@ function del(name)
 
     },
     onSubmit: values => {
+        var form=new FormData();
+      form.append("foodName",values.foodName)
+      form.append("foodTime",values.foodTime)
+      form.append("foodType",values.foodType)
+      form.append("ingredients",values.ingredients)
+      form.append('imgFood',values.file);
       console.log(values)
       axiosInstance .patch('api/v1/healthyfoods/update', values).then(function (response) {
           console.log(response);
@@ -131,7 +137,8 @@ function del(name)
                                 </Form.Group>
                                 <Form.Group controlId="formFile" className="mb-3">
                                     <Form.Label style={{ color: "var(--prime)" }}>Food Image</Form.Label>
-                                    <Form.Control type="file" name='imgFood'onChange={formik.handleChange}
+                                    <Form.Control type="file" name='file'onChange={(event) => {
+  formik.setFieldValue("file", event.currentTarget.files[0]);}}
                                         value={formik.values.imgFood} />
                                 </Form.Group>
 
